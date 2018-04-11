@@ -1,22 +1,33 @@
-player_first = "larry"
-health_first = 60
-player_second = "curly"
-health_second = 125
-player_third = "moe"
-health_third = 100
-player_fourth = "shemp"
-health_fourth = 90
+class Player 
+  def initialize(name, health = 100)
+    @name = name.capitalize
+    @health = health
+  end
 
-def say_hello(name, health = 100)
-  "I'm #{name.capitalize} with a health of #{health} as of #{time}."
+  def to_s
+    "I'm #{@name} with a health of #{@health}."
+  end
+
+  def blam
+    @health -= 10
+    puts "#{@name} got blammed!"
+  end
+
+  def w00t
+    @health += 15
+    puts "#{@name} got w00ted!"
+  end
 end
 
-def time
-  now = Time.new
-  now.strftime("%I:%M:%S")
-end
+player1 = Player.new("moe")
+puts player1
 
-puts say_hello(player_first, health_first)
-puts say_hello(player_second, health_second)
-puts say_hello(player_third)
-puts say_hello(player_fourth, health_fourth)
+player2 = Player.new("larry", 60)
+puts player2
+
+player3 = Player.new("curly", 125)
+puts player3
+player3.blam
+puts player3
+player3.w00t
+puts player3
