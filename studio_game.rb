@@ -48,3 +48,18 @@ player3.blam
 puts player3
 player3.w00t
 puts player3
+
+players = [player1, player2, player3]
+puts "There are #{players.size} players in the game"
+puts players
+
+players.each do |player|
+  puts player.health
+end
+
+players.each do |player|
+  player.blam
+  player.w00t
+  player.w00t
+  puts player
+end
