@@ -20,3 +20,4 @@ loop do
   end
 end
 
+gotham.save_high_scores
