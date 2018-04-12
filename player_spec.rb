@@ -52,7 +52,7 @@ describe Player do
   
     @player.found_treasure(Treasure.new(:hammer, 50))
   
-    expect(@player.points).t0 eq(500)
+    expect(@player.points).to eq(500)
   end
 
   context "with a health greater than 100" do
