@@ -36,6 +36,14 @@ class Player
   def <=> (other_player)
     other_player.score <=> score
   end
+
+  def print_name_and_health
+    puts "#{@name} (#{@health})"
+  end
+
+  def print_name_and_score
+    puts "#{@name.ljust(20, '.')} #{score}"
+  end
 end
 
 if __FILE__ == $0

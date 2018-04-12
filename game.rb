@@ -31,17 +31,17 @@ class Game
 
     puts "\n#{strong_players.size} strong players:"
     strong_players.each do |player|
-      puts "#{player.name} (#{player.health})"
+      player.print_name_and_health
     end
 
     puts "\n#{wimpy_players.size} wimpy players:"
     wimpy_players.each do |player|
-      puts "#{player.name} (#{player.health})"
+      player.print_name_and_health
     end
 
     puts "\n#{@title} High Scores:"
     @players.sort.each do |player|
-      puts "#{player.name.ljust(20, '.')} #{player.score}"
+      player.print_name_and_score
     end
   end
 end
