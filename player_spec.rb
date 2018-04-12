@@ -17,10 +17,6 @@ describe Player do
     expect(@player.health).to eq(150)
   end
 
-  it "has an inital empty hash of treasures" do
-    expect(@player.found_treasures).to eq({})
-  end
-
   it "has a string representation" do
     @player.found_treasure(Treasure.new(:hammer, 50))
     @player.found_treasure(Treasure.new(:hammer, 50))

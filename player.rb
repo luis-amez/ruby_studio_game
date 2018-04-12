@@ -1,7 +1,6 @@
 class Player
   attr_accessor :name
   attr_reader :health
-  attr_reader :found_treasures
 
   def initialize(name, health = 100)
     @name = name.capitalize
@@ -51,7 +50,7 @@ class Player
     @found_treasures[treasure.name] += treasure.points
 
     puts "#{@name} found a #{treasure.name} worth #{treasure.points}"
-    puts "#{@name} treasures: #{found_treasures}"
+    puts "#{@name} treasures: #{@found_treasures}"
   end
 
   def points
