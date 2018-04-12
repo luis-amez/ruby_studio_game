@@ -1,4 +1,5 @@
 require_relative 'player'
+require_relative 'treasure_trove'
 
 describe Player do
 
@@ -14,6 +15,10 @@ describe Player do
 
   it "has an initial health" do
     expect(@player.health).to eq(150)
+  end
+
+  it "has an inital empty hash of treasures" do
+    expect(@player.found_treasures).to eq({})
   end
 
   it "has a string representation" do
@@ -32,6 +37,22 @@ describe Player do
   it "decreases health by 10 when blammed" do
     @player.blam
     expect(@player.health).to eq(@initial_health - 10)
+  end
+
+  it "computes points as the sum of all treasure points" do
+    expect(@player.points).to eq(0)
+  
+    @player.found_treasure(Treasure.new(:hammer, 50))
+  
+    expect(@player.points).to eq(50)
+  
+    @player.found_treasure(Treasure.new(:crowbar, 400))
+  
+    expect(@player.points).to eq(450)
+  
+    @player.found_treasure(Treasure.new(:hammer, 50))
+  
+    expect(@player.points).t0 eq(500)
   end
 
   context "with a health greater than 100" do
