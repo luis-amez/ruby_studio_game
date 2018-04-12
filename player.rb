@@ -40,14 +40,6 @@ class Player
     other_player.score <=> score
   end
 
-  def print_name_and_health
-    puts "#{@name} (#{@health})"
-  end
-
-  def print_name_and_score
-    puts "#{@name.ljust(20, '.')} #{score}"
-  end
-
   def found_treasure(treasure)
     @found_treasures[treasure.name] += treasure.points
 
@@ -63,6 +55,11 @@ class Player
     @found_treasures.each do |name, points|
       yield Treasure.new(name, points)
     end
+  end
+
+  def self.from_csv(string)
+    name, health = string.split(",")
+    Player.new(name, Integer(health))
   end
 end
 

@@ -79,6 +79,13 @@ describe Player do
    ])
   end
 
+  it "can be created from a CSV string" do
+    player = Player.from_csv("Bruce,150")
+
+    expect(player.name).to eq("Bruce")
+    expect(player.health).to eq(150)
+  end
+
   context "with a health greater than 100" do
     before do
       @player = Player.new("larry", 150)
