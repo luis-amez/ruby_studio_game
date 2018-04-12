@@ -23,6 +23,10 @@ class Game
     end
 
     1.upto(rounds) do |round|
+      # End the game if certain condition passed as a block to play is fullfilled
+      if block_given?
+        break if yield
+      end
       puts "\nRound #{round}:"
       @players.each do |player|
         GameTurn.take_turn(player)
